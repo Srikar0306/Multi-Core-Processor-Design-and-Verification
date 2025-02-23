@@ -7,9 +7,13 @@ vlog -lint alu.sv
 vlog -lint cache.sv
 vlog -lint processor.sv
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 vlog -lint arbiter.sv
 >>>>>>> c2e9ec6 (CacheDone)
+=======
+vlog -lint arbiter.sv
+>>>>>>> 9a46d3a (Cache updated)
 
 vlog -lint top.sv
 

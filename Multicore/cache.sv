@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 module cache #(parameter cache_index = 7) ( 
 				input logic clk,rst,
 				input logic valid,
@@ -86,6 +87,8 @@ module cache #(parameter cache_index = 7) (
 	assign gnt = valid && temp_hit;
 	
 =======
+=======
+>>>>>>> 9a46d3a (Cache updated)
 module cache(
 				input clk,rst,
 				input rw,valid,
@@ -271,5 +274,8 @@ module cache(
 			cache_mem[temp_addr[6:0]] <= data_cache;
 	end
 		
+<<<<<<< HEAD
 >>>>>>> c2e9ec6 (CacheDone)
+=======
+>>>>>>> 9a46d3a (Cache updated)
 endmodule

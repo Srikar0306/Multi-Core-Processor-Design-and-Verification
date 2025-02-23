@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import pkg::*;
 
 
@@ -395,6 +396,8 @@ assign address_cache_store = send_addr ? address_in : 0;
 assign data_cache = send_data ? data_in : 0; 
 
 =======
+=======
+>>>>>>> 9a46d3a (Cache updated)
 import pkg::*;
 
 
@@ -589,12 +592,21 @@ endmodule
 
 
 module load (
+<<<<<<< HEAD
 				input wire clk,rst,
 				input wire [11:0] address_in,
 				inout wire [7:0] data_cache,
 				input wire start_load,
 				input logic gnt,
 				input wire hit,
+=======
+				input clk,rst,
+				input [11:0] address_in,
+				inout [7:0] data_cache,
+				input start_load,
+				input gnt,
+				input hit,
+>>>>>>> 9a46d3a (Cache updated)
 				output reg end_load,
 				output reg valid_load,
 				output reg [11:0] address_cache_load,
@@ -629,16 +641,28 @@ always_comb
 		IDLE_LOAD : begin
 						valid_load = 0;
 						send_addr = 0;
+<<<<<<< HEAD
 						complete = 0;
 					end
 		
 		SEND_ADDR_LOAD : begin
+=======
+						complete = 1;
+					end
+		
+		SEND_ADDR_LOAD : begin
+							complete = 0;
+>>>>>>> 9a46d3a (Cache updated)
 							send_addr = 1;
 							valid_load = 1;
 							
 						end
 		
 		WAIT_LOAD : begin
+<<<<<<< HEAD
+=======
+						complete = 0;
+>>>>>>> 9a46d3a (Cache updated)
 						valid_load = 0;
 					end
 					
@@ -696,10 +720,18 @@ module store (
 				input wire start_store,
 				input wire [7:0] data_in,
 				input wire hit,
+<<<<<<< HEAD
 				output reg [11:0] address_cache_store,
 				inout wire [7:0] data_cache,
 				output reg [15:0] result_store,
 				output reg gnt,valid_store,
+=======
+				input wire gnt,
+				output reg [11:0] address_cache_store,
+				inout wire [7:0] data_cache,
+				output reg [15:0] result_store,
+				output reg valid_store,
+>>>>>>> 9a46d3a (Cache updated)
 				output reg end_store
 			);
 
@@ -734,6 +766,10 @@ always_comb
 					end
 		
 		SEND_ADDR_STORE : begin
+<<<<<<< HEAD
+=======
+							complete = 0;
+>>>>>>> 9a46d3a (Cache updated)
 							send_addr = 1;
 							send_data = 1;
 							valid_store = 1;
@@ -741,6 +777,10 @@ always_comb
 						end
 		
 		WAIT_STORE : begin
+<<<<<<< HEAD
+=======
+						complete = 0;
+>>>>>>> 9a46d3a (Cache updated)
 						valid_store = 0;
 					end
 					
@@ -776,7 +816,13 @@ always_comb
 						if(gnt) next_state = FINISH_STORE;
 					end
 					
+<<<<<<< HEAD
 		FINISH_STORE : next_state = IDLE_STORE;
+=======
+		FINISH_STORE : begin
+						if(start_store) next_state = IDLE_STORE;
+					end
+>>>>>>> 9a46d3a (Cache updated)
 		
 		endcase
 	end
@@ -790,5 +836,8 @@ assign address_cache_store = send_addr ? address_in : 0;
 
 assign data_cache = send_data ? data_in : 0; 
 
+<<<<<<< HEAD
 >>>>>>> c2e9ec6 (CacheDone)
+=======
+>>>>>>> 9a46d3a (Cache updated)
 endmodule
